@@ -1,0 +1,58 @@
+@use "../variables/variables" as *;
+.header{
+    position: fixed;
+    .content{
+        width: 90px;
+        padding: 10px;
+        height: 60px;
+        background-image: url('../../img/logo1.svg');
+        background-position: center;
+        background-size: cover;
+    }
+    .logout{
+        margin-left: 85pc;
+        margin-top: -50px;
+        button{
+            padding: 8px 30px;
+            border-radius: 12px;
+            border-color: $input_border_color;
+            border-style: solid;
+            color: $text_headers_color;
+            // display: block;
+            // margin: auto;
+            border-width: 0.1px;
+            background-color: transparent;
+            &:hover{
+                color: rgb(255, 255, 255);    
+                background-color: $text_headers_color;
+                border-color: $text_headers_color;
+            }
+        }
+        
+    }
+}
+
+@media only screen and (min-width: 480px){
+
+}
+
+@media only screen and (min-width: 600px){
+
+
+}
+
+@media only screen and (min-width: 768px){
+
+}
+
+@media only screen and (min-width: 800px){
+
+}
+
+@media only screen and (min-width: 1024px){
+
+}
+
+@media only screen and (min-width: 1500px){
+
+}
