@@ -22,21 +22,15 @@ class Redirect extends Controller
         return view('pages.intro.intro');
     }
 
-    public function forget_password(){
-        return view('pages.forms.forget_password');
-    }
-
-    public function reset_password(){
-        return view('pages.forms.reset_password');
-    }
-
     public function errors(){
         return view('pages.errors.confirmed');
     }
-
+    
+    //try 
     public function send_email(){
         return view('pages.emails.verfiy');
     }
+
 }
 
 

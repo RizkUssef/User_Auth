@@ -1,5 +1,11 @@
 @use "../variables/variables" as *;
 
+.pad_50{
+      padding: 80px 0px;      
+}
+.mar_50{
+    margin-top: 0px;
+}
 .bg{
     display: flex;
     flex-direction: column;
@@ -40,6 +46,7 @@
                     h1{
                         text-align: center;
                         font-size: xx-large;
+                        margin-bottom: 15px;
                     }
                     form{
                         width: 80%;
@@ -55,6 +62,7 @@
                             border-style: solid;
                             background-color: transparent;
                             padding-left: 15px;
+                            margin-top: 10px;
                             &:focus{
                                 border-width: 0.1px;
                                 outline-color: $text_headers_color;
@@ -91,6 +99,7 @@
                             color: $text_headers_color;
                             display: block;
                             margin: auto;
+                            cursor: pointer;
                             border-width: 0.1px;
                             background-color: transparent;
                             &:hover{
@@ -100,12 +109,29 @@
                             }
                         }
                     }
-
+                    .login_with_google{
+                        padding: 8px 30px;
+                        border-radius: 15px;
+                        border-color: $input_border_color;
+                        border-style: solid;
+                        border-width: 0.1px;
+                        font-size: large;
+                        margin-top: 10px;
+                        color: #000000;
+                        text-decoration: none;
+                        background-color: transparent;
+                        img{
+                            width: 20px;
+                            height: 20px;
+                            margin-left: 10px;
+                            margin-bottom: -4px;
+                        }
+                    }
                     p{
                         margin: auto;
                         text-align: center;
                         margin-top: 20px;
-                        width: 80%;
+                        width: 100%;
                         a{
                             color: $text_headers_color;
                             text-decoration: none;
@@ -115,6 +141,8 @@
             }
         }
 }
+
+
 
 @media only screen and (min-width: 480px){
     .bg{
@@ -204,6 +232,13 @@
 }
 
 @media only screen and (min-width: 1500px){
+    .pad_50{
+        padding:0px 0px;
+        // padding-top: 5px;    
+    }
+    .mar_50{
+        margin-top: 70px !important;
+    }
     .bg{
         height: 100vh;
         .center_all{
@@ -212,6 +247,9 @@
             // margin-bottom: 50%;
             .login_container{
                 form{
+                    input{
+                        width: 97%;
+                    }
                     .forget_password{
                         margin-left: 246px;
                     }

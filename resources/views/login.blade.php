@@ -18,56 +18,61 @@
             </svg>
         </div>
     </header>
-    @if($errors->has('name'))
-    @elseif($errors->has('email'))
-        <section class="hov">
-            <section class="error_container" id="card">
-                <div class="all">
-                    <div class="error_image">
-                        <img src="{{asset('img/wrong cridntails.gif')}}">
-                    </div>
-                    <div class="error_head">
-                        <h1>{{ $errors->first('email') }}</h1>
-                    </div>
-                </div>
-            </section>
-        </section>
-    @elseif($errors->has('password'))
-        <section class="hov">
-            <section class="error_container" id="card">
-                <div class="all">
-                    <div class="error_image">
-                        <img src="{{asset('img/forget.gif')}}">
-                    </div>
-                    <div class="error_head">
-                        <h1>{{ $errors->first('password') }}</h1>
-                    </div>
-                </div>
-            </section>
-        </section>
-    @endif
     <section class="bg">
+        @if($errors->has('email'))
+            <section id="section" class="error_container">
+                <div class="all">
+                    <div class="error_image">
+                        <img src="{{asset("img/no.gif")}}">
+                    </div>
+                    <div class="error_head">
+                        <h1>{{$errors->first('email')}} </h1>
+                    </div>
+                </div>
+            </section>
+        @elseif($errors->has('password'))
+            <section id="section" class="error_container">
+                <div class="all">
+                    <div class="error_image">
+                        <img src="{{asset("img/req.gif")}}">
+                    </div>
+                    <div class="error_head">
+                        <h1>{{$errors->first('password')}} </h1>
+                    </div>
+                </div>
+            </section>
+        @endif
         <div class="center_all">
             <div class="Welcome">
                 <h1>Welcome Back To Amenta </h1>
             </div>
             <div class="login_container">
-                    <h1>Login</h1>
-                    <form action="{{route("access user")}}" method="POST">
-                        @csrf
-                        <label for="">Email</label>
-                        <input type="email" name="email" id="">
-                        <label for="">Password</label>
-                        <input type="password" name="password" id="">
-                        <a class="forget_password" href="#">Forget Password?</a>
-                        <input class="check_box_btn" type="checkbox" name="remember" id="">
-                        <label class="check_box_label" for="check">Remember Me</label>
-                        <button class="submit" type="submit">Submit</button>
-                    </form>
-                    <p>Don’t have an account? <a href="{{route('signup')}}">Create new account</a> </p>
+                <h1>Login</h1>
+                @if (session()->has('success'))
+                {{session('success')}}
+                @endif
+                <form action="{{route("access user")}}" method="POST">
+                    @csrf
+                    <label for="">Email</label>
+                    <input type="email" name="email" id="">
+                    <label for="">Password</label>
+                    <input type="password" name="password" id="">
+                    <a class="forget_password" href="{{route('forget_pass')}}">Forget Password?</a>
+                    <input class="check_box_btn" type="checkbox" name="remember" id="">
+                    <label class="check_box_label" for="check">Remember Me</label>
+                    <button class="submit" type="submit">Submit</button>
+                </form>
+                <p>Don’t have an account? <a href="{{route('signup')}}">Create new account</a> </p>
             </div>
         </div>
     </section>
+    <script>
+        var section = document.getElementById("section");
+        function removeSection() {
+            section.parentNode.removeChild(section);
+        }
+        setTimeout(removeSection, 5000);
+    </script>
 </body>
 
 </html>

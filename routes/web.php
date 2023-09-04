@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\Redirect;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -29,8 +30,32 @@ Route::get("FTRU/home",[Redirect::class,"intro"])->name("home")->middleware('aut
 
 Route::post("FTRU/logout",[UserController::class,"logout"])->name("logout");
 
-Route::get("FTRU/forget",[Redirect::class,"forget_password"])->name("forget_pass");
-Route::get("FTRU/reset",[Redirect::class,"reset_password"])->name("reset_pass");
+Route::get("FTRU/signin/forget",[ForgetPasswordController::class,"forget_password"])->name("forget_pass");
+Route::post('FTRU/signin/forgetpassword',[ForgetPasswordController::class,'forgetPasswordHandle'])->name('forget_password_handle');
+
+Route::get("FTRU/reset/{token}",[ForgetPasswordController::class,"reset_password"])->name("reset_pass");
+Route::post("FTRU/reset",[ForgetPasswordController::class, "resetPasswordHandle"])->name("reset_password_handle");
+
 Route::get("FTRU/error",[Redirect::class,"errors"])->name("error");
 Route::get("FTRU/email",[Redirect::class,"send_email"])->name("email");
 
+Route::post("FTRU/verfiy",[UserController::class,"handleOTP"])->name("verfiy");
+
+
+// !try 
+
+Route::get("error",[Redirect::class,"errors"])->name("error");
+Route::get("hui",function(){
+    return view('pages.emails.verfiy');
+});
+Route::get("errrrr",function(){
+    return view('pages.errors.confirmed');
+});
+
+Route::get("user/{id}",[UserController::class,"try_exception"]);
+
+Route::get("kop/{lang}",[UserController::class,"loca"])->name('lang');
+
+Route::get("huop",function(){
+    return view('pages.errors.lang_confirmed');
+})->middleware("lang");

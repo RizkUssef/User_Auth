@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>SignUp</title>
     <link rel = "icon" href ="{{asset('img/FTRU.svg')}}"  type = "image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,11 +18,52 @@
             </svg>
         </div>
     </header>
-    <section class="allpage">
-        <section class="rightSide">
-            <h1>Create New Account</h1>
-            <div class="form_container">
+    <section class="pad_50 bg">
+        @if($errors->has('name'))
+            <section id="section" class="error_container">
+                <div class="all">
+                    <div class="error_image">
+                        <img src="{{asset("img/no.gif")}}">
+                    </div>
+                    <div class="error_head">
+                        <h1>{{$errors->first('name')}} </h1>
+                    </div>
+                </div>
+            </section>
+        @elseif($errors->has('email'))
+            <section id="section" class="error_container">
+                <div class="all">
+                    <div class="error_image">
+                        <img src="{{asset("img/req.gif")}}">
+                    </div>
+                    <div class="error_head">
+                        <h1>{{$errors->first('email')}} </h1>
+                    </div>
+                </div>
+            </section>    
+        @elseif($errors->has('password'))
+            <section id="section" class="error_container">
+                <div class="all">
+                    <div class="error_image">
+                        <img src="{{asset("img/req.gif")}}">
+                    </div>
+                    <div class="error_head">
+                        <h1>{{$errors->first('password')}} </h1>
+                    </div>
+                </div>
+            </section>
+        @endif
+        <div class="center_all">
+            <div class="Welcome mar_50">
+                <h1>Create new Account</h1>
+            </div>
+            <div class="login_container">
+                <h1>Register</h1>
+                @if (session()->has('success'))
+                {{session('success')}}
+                @endif
                 <form action="{{route("new user")}}" method="POST">
+                    @csrf
                     <label for="">Name</label>
                     <input name="name" type="text" value="{{old('name')}}">
                     <label for="">Email</label>
@@ -40,52 +81,15 @@
                     <p>Already have an account?<span><a href="{{route('login')}}">Login</a></span> </p>
                 </div>
             </div>
-        </section>
-    @if($errors->has('name'))
-        <section class="hov">
-            <section class="error_container" id="card">
-                <div class="all">
-                    <div class="error_image">
-                        <img src="{{asset('img/required.gif')}}">
-                    </div>
-                    <div class="error_head">
-                        <h1>{{ $errors->first('name') }}</h1>
-                    </div>
-                </div>
-            </section>
-        </section>
-    @elseif($errors->has('email'))
-        <section class="hov">
-            <section class="error_container" id="card">
-                <div class="all">
-                    <div class="error_image">
-                        <img src="{{asset('img/wrong cridntails.gif')}}">
-                    </div>
-                    <div class="error_head">
-                        <h1>{{ $errors->first('email') }}</h1>
-                    </div>
-                </div>
-            </section>
-        </section>
-    @elseif($errors->has('password'))
-        <section class="hov">
-            <section class="error_container" id="card">
-                <div class="all">
-                    <div class="error_image">
-                        <img src="{{asset('img/forget.gif')}}">
-                    </div>
-                    <div class="error_head">
-                        <h1>{{ $errors->first('password') }}</h1>
-                    </div>
-                </div>
-            </section>
-        </section>
-    @endif
-        <section class="leftSide">
-            <div class="imageContainer">
-                <img src="{{asset('img/Authentication-bro.svg')}}" alt="Rui">
-            </div>
-        </section>
+        </div>
     </section>
+    <script>
+        var section = document.getElementById("section");
+        function removeSection() {
+            section.parentNode.removeChild(section);
+        }
+        setTimeout(removeSection, 5000);
+    </script>
 </body>
+
 </html>

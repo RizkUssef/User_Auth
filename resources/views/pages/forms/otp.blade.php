@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forget Password</title>
+    <title>Email Verification</title>
     <link rel = "icon" href ="{{asset('img/FTRU.svg')}}"  type = "image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,18 +22,19 @@
         <section class="bg">
             <div class="center_all">
                 <div class="Welcome">
-                    <h1>Forget Password </h1>
+                    <h1>Email Verification</h1>
                 </div>
                 <div class="login_container">
-                        <h1>Enter Your Email</h1>
-                        @if (session()->has('error'))
+                        <h1>Email Verification</h1>
+                        {{-- @if (session()->has('error'))
                             {{session('error')}}
-                        @endif
-                        <form action="{{route('forget_password_handle')}}" method="POST">
+                        @endif --}}
+                        <form action="{{route('verfiy')}}" method="POST">
                             @csrf
-                            <label for="">Email</label>
-                            <input type="email" name="email" id="">
-                            <button class="submit" type="submit">Submit</button>
+                            <label for="">Enter Your OTP</label>
+                            <input type="hidden" name="user_id" value="{{encrypt($user_id)}}">
+                            <input type="text" name="otp" id="">
+                            <button class="submit" type="submit">Verfiy</button>
                         </form>
                 </div>
             </div>

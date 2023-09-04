@@ -3,12 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Verify Your Email</title>
+        <title>Change Your Password</title>
         <link rel = "icon" href ="{{asset('img/FTRU.svg')}}"  type = "image/svg+xml">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Nunito:wght@300&family=Square+Peg&display=swap" rel="stylesheet">
-        {{-- <link rel="stylesheet" href="{{asset('sass/main.css')}}"> --}}
         <style>
             .bg {
             font-family: "lora";
@@ -37,7 +36,7 @@
             }
             .bg .email_container .hint p span {
             color: #F0BFA3;
-            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.76);
+            /* text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.76); */
             }
             .bg .email_container .bottom_logo {
             width: 100px;
@@ -124,33 +123,34 @@
             }
         </style>
     </head>
-    <body style="font-family: 'lora'; background-color: #f1eee9; border-radius: 50px; padding: 30px 0px">
+    <body style="font-family: 'lora'; background-color: #f1eee9; border-radius: 50px; padding: 30px 0px">  
         <section class="bg">
             <section class="email_container">
-                <section class="tlogo">
+                <section class="tlogo" >
                     <div class="top_logo">
-                        <img src="{{asset('img/FTRU (1).svg')}}" alt="no">
+                        <img src="{{ $message->embed(public_path("img/logo_email.png")) }}" alt="no">
                     </div>
                 </section>
-                <div class="all">
+            
+            <div class="all" >
                     <div class="error_head">
                         <h1>Welcome to our website</h1>
-                        <p class="text_for">Hello my Friend, It’s our Authentication System. “We do this for us not for you “ so verify your mail to complete our work </p>
+                        <p class="text_for">Hello my Friend, to reset your password just use this link</p>
                     </div>
                     <div class="error_image">
-                        <img src="{{asset('img/jo.jpeg')}}" alt="no">
+                        <img src="{{ $message->embed(public_path("img/jo.jpeg")) }}" alt="no" >
                     </div>                
-                    <a class="submit">Verify your Email</a>
+                    <h1>{{$data["otp"]}}</h1>
                 </div>
-    
                 <div class="hint">
                     <p>For your notes this masterpiece made by the most perfect web developers
                         <span>” Faten Elmarzouki ” & “ Rizk Ussef ”</span></p>
                 </div>
                 <div class="bottom_logo">
-                    <img src="{{asset('img/ψυχή.svg')}}" alt="no">
+                    <img src="{{ $message->embed(public_path("img/ψυχή_email.png")) }}" alt="no">
                 </div>
             </section>
         </section>
+
     </body>
 </html>

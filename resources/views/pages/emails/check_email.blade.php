@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Your Password</title>
+    <title>Check Your Email </title>
     <link rel = "icon" href ="{{asset('img/FTRU.svg')}}"  type = "image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,25 +18,14 @@
             </svg>
         </div>
     </header>
-
     <section class="bg">
         <div class="center_all">
             <div class="Welcome">
-                <h1>Rest Password </h1>
+                <h1>FTRU</h1>
             </div>
             <div class="login_container">
-                    <h1>Enter Your New Password</h1>
-                    <form action="{{route('reset_password_handle')}}" method="POST">
-                        @csrf
-                        <input type="hidden" name="token" value="{{$token}}">
-                        <label for="">Email</label>
-                        <input type="email" name="email" id="">
-                        <label for="">Password</label>
-                        <input type="password" name="password" id="">
-                        <label for="">Confirm Password</label>
-                        <input type="password" name="password_confirmation" id="">
-                        <button class="submit" type="submit">Submit</button>
-                    </form>
+                    <h1>Check your Email</h1>
+                    <p>We send an Email for you to reset the password, Don't forget your password again 🙂  <a href="{{route('signup')}}">Resend email?</a> </p>
             </div>
         </div>
     </section>
