@@ -23,7 +23,7 @@
             <section id="section" class="error_container">
                 <div class="all">
                     <div class="error_image">
-                        <img src="{{asset("img/no.gif")}}">
+                        <img src="{{asset("img/name.gif")}}">
                     </div>
                     <div class="error_head">
                         <h1>{{$errors->first('name')}} </h1>
@@ -34,7 +34,7 @@
             <section id="section" class="error_container">
                 <div class="all">
                     <div class="error_image">
-                        <img src="{{asset("img/req.gif")}}">
+                        <img src="{{asset("img/email.gif")}}">
                     </div>
                     <div class="error_head">
                         <h1>{{$errors->first('email')}} </h1>
@@ -45,7 +45,7 @@
             <section id="section" class="error_container">
                 <div class="all">
                     <div class="error_image">
-                        <img src="{{asset("img/req.gif")}}">
+                        <img src="{{asset("img/pass.gif")}}">
                     </div>
                     <div class="error_head">
                         <h1>{{$errors->first('password')}} </h1>

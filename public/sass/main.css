@@ -110,7 +110,7 @@
 }
 
 .pad_50 {
-  padding: 80px 0px;
+  padding: 120px 0px;
 }
 
 .mar_50 {
@@ -307,6 +307,48 @@
     margin-left: 303px;
   }
 }
+@media only screen and (min-width: 1300px) {
+  .pad_50 {
+    padding: 50px 0px;
+  }
+  .mar_50 {
+    margin-top: 70px !important;
+  }
+  .bg {
+    height: 100vh;
+  }
+  .bg .center_all {
+    margin-top: 0%;
+    width: 35%;
+  }
+  .bg .center_all .login_container form input {
+    width: 97%;
+  }
+  .bg .center_all .login_container form .forget_password {
+    margin-left: 202px;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .pad_50 {
+    padding: 50px 0px;
+  }
+  .mar_50 {
+    margin-top: 70px !important;
+  }
+  .bg {
+    height: 100vh;
+  }
+  .bg .center_all {
+    margin-top: 0%;
+    width: 35%;
+  }
+  .bg .center_all .login_container form input {
+    width: 97%;
+  }
+  .bg .center_all .login_container form .forget_password {
+    margin-left: 218px;
+  }
+}
 @media only screen and (min-width: 1500px) {
   .pad_50 {
     padding: 0px 0px;
@@ -328,6 +370,10 @@
     margin-left: 246px;
   }
 }
+.index_pad {
+  padding: 150px 0px;
+}
+
 .bg .page {
   width: 70%;
   margin-top: 330%;
@@ -408,27 +454,47 @@
   text-decoration: none;
 }
 
+@media only screen and (min-width: 480px) {
+  .index_pad {
+    padding: 200px 0px;
+  }
+}
 @media only screen and (min-width: 600px) {
+  .index_pad {
+    padding: 70px 0px;
+  }
   .bg .page {
     width: 60%;
   }
 }
 @media only screen and (min-width: 768px) {
+  .index_pad {
+    padding: 0px 0px;
+  }
   .bg .page {
     width: 60%;
   }
 }
 @media only screen and (min-width: 800px) {
+  .index_pad {
+    padding: 100px 0px;
+  }
   .bg .page {
     width: 60%;
   }
 }
 @media only screen and (min-width: 1024px) {
+  .index_pad {
+    padding: 0px 0px;
+  }
   .bg .page {
     width: 60%;
   }
 }
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1500px) {
+  .index_pad {
+    padding: 0px 0px;
+  }
   .bg .page {
     width: 40%;
   }
@@ -480,6 +546,14 @@
   border-radius: 15px;
   border-style: solid;
 }
+.bg .back_btn .link_cont .ftru_back {
+  text-decoration: none;
+  color: #F0BFA3;
+}
+.bg .back_btn .link_cont .ftru_back::before {
+  content: "";
+  display: none;
+}
 .bg .back_btn .link_cont a {
   text-decoration: none;
   color: #F0BFA3;
@@ -498,6 +572,13 @@
   border-color: #F0BFA3;
   background-color: #F0BFA3;
   cursor: pointer;
+}
+.bg .back_btn .link_cont:hover .ftru_back {
+  color: #f1eee9;
+}
+.bg .back_btn .link_cont:hover .ftru_back::before {
+  content: "";
+  display: none;
 }
 .bg .back_btn .link_cont:hover a {
   color: #f1eee9;
@@ -745,8 +826,8 @@
   background-size: cover;
 }
 .header .logout {
-  margin-left: 85pc;
-  margin-top: -50px;
+  margin-left: 13pc;
+  margin-top: -69px;
 }
 .header .logout button {
   padding: 8px 30px;
@@ -761,4 +842,53 @@
   color: rgb(255, 255, 255);
   background-color: #F0BFA3;
   border-color: #F0BFA3;
+}
+
+@media only screen and (min-width: 480px) {
+  .header .logout {
+    margin-left: 23pc;
+    margin-top: -69px;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .header .logout {
+    margin-left: 31pc;
+    margin-top: -69px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .header .logout {
+    margin-left: 41pc;
+    margin-top: -69px;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .header .logout {
+    margin-left: 43pc;
+    margin-top: -69px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .header .logout {
+    margin-left: 57pc;
+    margin-top: -69px;
+  }
+}
+@media only screen and (min-width: 1370px) {
+  .header .logout {
+    margin-left: 78pc;
+    margin-top: -69px;
+  }
+}
+@media only screen and (min-width: 1360px) {
+  .header .logout {
+    margin-left: 78pc;
+    margin-top: -69px;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  .header .logout {
+    margin-left: 88pc;
+    margin-top: -69px;
+  }
 }/*# sourceMappingURL=main.css.map */

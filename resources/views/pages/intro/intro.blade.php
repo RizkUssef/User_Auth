@@ -24,20 +24,17 @@
             </form>
         </div>
     </header>
-    
     <section class="bg">
         <div class="center_all">
-
             <div class="intro_container">
-                    <div class="all">
-                        <div class="error_image">
-                            <img src="{{asset('../img/enter1.gif')}}">
-                        </div>                
-                        <div class="error_head">
-                            <h1>ادخل يا صاحبى عاملين حفله بوجودك</h1>
-                        </div>
+                <div class="all">
+                    <div class="error_image">
+                        <img src="{{asset('../img/enter1.gif')}}">
+                    </div>                
+                    <div class="error_head">
+                        <h1>Welcome to our masterpiece FTRU</h1>
                     </div>
-
+                </div>
             </div>
         </div>
     </section>

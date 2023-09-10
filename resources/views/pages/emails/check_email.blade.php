@@ -25,7 +25,7 @@
             </div>
             <div class="login_container">
                     <h1>Check your Email</h1>
-                    <p>We send an Email for you to reset the password, Don't forget your password again 🙂  <a href="{{route('signup')}}">Resend email?</a> </p>
+                    <p>We send an Email for you to reset the password, Don't forget your password again 🙂  <a href="{{route('forget_pass')}}">Resend email?</a> </p>
             </div>
         </div>
     </section>

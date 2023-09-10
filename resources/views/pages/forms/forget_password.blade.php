@@ -18,25 +18,40 @@
                 </svg>
             </div>
         </header>
-        
         <section class="bg">
             <div class="center_all">
                 <div class="Welcome">
                     <h1>Forget Password </h1>
                 </div>
+                @if($errors->has('email'))
+                    <section id="section" class="error_container">
+                        <div class="all">
+                            <div class="error_image">
+                                <img src="{{asset("img/no.gif")}}">
+                            </div>
+                            <div class="error_head">
+                                <h1>{{$errors->first('email')}} </h1>
+                            </div>
+                        </div>
+                    </section>
+                @endif
                 <div class="login_container">
-                        <h1>Enter Your Email</h1>
-                        @if (session()->has('error'))
-                            {{session('error')}}
-                        @endif
-                        <form action="{{route('forget_password_handle')}}" method="POST">
-                            @csrf
-                            <label for="">Email</label>
-                            <input type="email" name="email" id="">
-                            <button class="submit" type="submit">Submit</button>
-                        </form>
+                    <h1>Enter Your Email</h1>
+                    <form action="{{route('forget_password_handle')}}" method="POST">
+                        @csrf
+                        <label for="">Email</label>
+                        <input type="email" name="email">
+                        <button class="submit" type="submit">Submit</button>
+                    </form>
                 </div>
             </div>
         </section>
+        <script>
+            var section = document.getElementById("section");
+            function removeSection() {
+                section.parentNode.removeChild(section);
+            }
+            setTimeout(removeSection, 5000);
+        </script>
     </body>
 </html>

@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\Redirect;
-use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ForgetPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,7 @@ Route::post("FTRU/login",[UserController::class,"handleLogin"])->name("access us
 Route::get('/auth/{provider}/redirect',[UserController::class,"redirect"]);
 Route::get('/auth/{provider}/callback',[UserController::class, 'callback']);
 
-Route::get("FTRU/home",[Redirect::class,"intro"])->name("home")->middleware('auth');
-
+Route::get("FTRU/home",[Redirect::class,"intro"])->name("home")->middleware(['auth','user_verify']);
 Route::post("FTRU/logout",[UserController::class,"logout"])->name("logout");
 
 Route::get("FTRU/signin/forget",[ForgetPasswordController::class,"forget_password"])->name("forget_pass");
@@ -37,25 +37,14 @@ Route::get("FTRU/reset/{token}",[ForgetPasswordController::class,"reset_password
 Route::post("FTRU/reset",[ForgetPasswordController::class, "resetPasswordHandle"])->name("reset_password_handle");
 
 Route::get("FTRU/error",[Redirect::class,"errors"])->name("error");
-Route::get("FTRU/email",[Redirect::class,"send_email"])->name("email");
+Route::get("FTRU/wrongRoute",[Redirect::class,"handleWrongRoute"])->name("worng_route");
 
+Route::get("FTRU/email",[Redirect::class,"send_email"])->name("email");
 Route::post("FTRU/verfiy",[UserController::class,"handleOTP"])->name("verfiy");
 
+Route::get("otpform",[Redirect::class,"otp"])->name("returnOTP");
+Route::get("resend_otp",[UserController::class,"resendOTP"])->name("resend")->middleware(['throttle:send_email']);
 
-// !try 
-
-Route::get("error",[Redirect::class,"errors"])->name("error");
-Route::get("hui",function(){
-    return view('pages.emails.verfiy');
+Route::fallback(function(){
+    return redirect()->route('worng_route')->withErrors("Oops! It seems like you've reached an incorrect destination");
 });
-Route::get("errrrr",function(){
-    return view('pages.errors.confirmed');
-});
-
-Route::get("user/{id}",[UserController::class,"try_exception"]);
-
-Route::get("kop/{lang}",[UserController::class,"loca"])->name('lang');
-
-Route::get("huop",function(){
-    return view('pages.errors.lang_confirmed');
-})->middleware("lang");

@@ -1,4 +1,7 @@
 @use "../variables/variables" as *;
+.index_pad{
+    padding: 150px 0px;
+}
 .bg{
     .page{
         width: 70%;
@@ -81,10 +84,15 @@
 }
 
 @media only screen and (min-width: 480px){
-
+    .index_pad{
+        padding: 200px 0px;
+    }
 }
 
 @media only screen and (min-width: 600px){
+    .index_pad{
+        padding: 70px 0px;
+    }
     .bg{
         .page{
             width: 60% ;
@@ -93,6 +101,9 @@
 }
 
 @media only screen and (min-width: 768px){
+    .index_pad{
+        padding:0px 0px;
+    }
     .bg{
         .page{
             width: 60% ;
@@ -101,6 +112,9 @@
 }
 
 @media only screen and (min-width: 800px){
+    .index_pad{
+        padding: 100px 0px;
+    }
     .bg{
         .page{
             width: 60% ;
@@ -109,6 +123,9 @@
 }
 
 @media only screen and (min-width: 1024px){
+    .index_pad{
+        padding: 0px 0px;
+    }
     .bg{
         .page{
             width: 60% ;
@@ -116,7 +133,10 @@
     }
 }
 
-@media only screen and (min-width: 1024px){
+@media only screen and (min-width: 1500px){
+    .index_pad{
+        padding: 0px 0px;
+    }
     .bg{
         .page{
             width: 40% ;

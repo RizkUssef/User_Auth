@@ -19,15 +19,15 @@ use Laravel\Socialite\Facades\Socialite;
 
 class UserController extends Controller
 {
-    // handle register from the form
     public function handleRegister(RegisterRequest $request){
         $user = User::create([
             "name" => $request->name,
             "email" => $request->email,
             "password"=>Hash::make($request->password)
         ]);
+        session()->put("user",$user);
         $this->sendOTP($user);
-        return view('pages.forms.otp',["user_id"=>$user->id]);
+        return redirect()->route('returnOTP');
     }
 
     public function redirect($provider){
@@ -36,7 +36,6 @@ class UserController extends Controller
 
     public function callback($provider){
         $socialUser = Socialite::driver($provider)->user();
-        // ! why?
         $user = User::where('email',$socialUser->getEmail())->exists();
         if($user){
             return redirect(route("signup"))->withErrors(['email'=>'This email uses different method to login ']);
@@ -58,23 +57,22 @@ class UserController extends Controller
     public function handleLogin(LoginRequest $request){
         $is_login= Auth::attempt(["email"=>$request->email,"password"=>$request->password],$request->filled('remember'));
         if($is_login){
+            $user=User::where("email",$request->email)->first();
+            session()->put("user",$user);
             return redirect()->route('home');
         }
-        //!handle else
         else{
-            return redirect()->route('error')->withErrors("wrong credentials invalid username or password");
+            return redirect()->route('error')->withErrors("Wrong credentials invalid email or password");
         }
     }
 
     public function logout(){
         $user = Auth::user();
-
         Auth::logout();
         if ($user) {
             $user->setRememberToken(null);
             $user->save();
         }
-
         return redirect()->route('access user');
     }
 
@@ -88,7 +86,6 @@ class UserController extends Controller
                 "otp"=>$otp,
                 "created_at"=>$time,
             ]);
-
         $data["email"]=$user_otp->email;
         $data["otp"]=$user_otp->otp;
         Mail::send('pages.emails.your_otp', ['data'=>$data], function ($message)use($data) {
@@ -110,34 +107,22 @@ class UserController extends Controller
                 ]);
                 return view("pages.intro.intro");
             }else{
-                // ! handle errors
-                return view('pages.errors.confirmed');
+                return redirect()->route('error')->withErrors("Access Denied");
             }
         }else{
-            return view('pages.errors.confirmed');
+            return redirect()->route('error')->withErrors("Wrong OTP");
         }
     }
 
-
-    // // ? try the exception
-
-    // public function try_exception($id){
-    //     $user = User::find($id);
-    //     if(!$user){
-    //         throw new UserExcists("you not in our community yet !!");
-    //     }
-    //     return view('pages.intro.intro');
-
-    // }
-
-    // //? try localization
-
-    // public function loca($lang){
-    //     App::setLocale($lang);
-    //     Session::put("lang",$lang);
-    //     return redirect()->back();
-    // }
-
-    
+    public function resendOTP(){
+        if(session()->has("user")){
+            $user = session()->get("user");
+            $this->sendOTP($user);
+            session()->flash("success","we send a new email for you, cheack your email");
+            return redirect()->route('returnOTP');
+        }else{
+            return redirect()->route("signup")->withErrors("you don't in our coummunity yet, please register first");
+        }
+    }
 
 }

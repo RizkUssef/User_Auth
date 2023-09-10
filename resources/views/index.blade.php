@@ -20,12 +20,17 @@
     </header>
 
 
-    <section class="bg">
+    <section class="bg index_pad">
 
         <section class="page">
             <div class="para">
                 <h1>Welcome</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nesciunt deleniti quas temporibus laudantium facere? Nihil molestiae, minus, ex laborum placeat beatae quaerat neque cum ratione facilis saepe illo ipsum.</p>
+                <p>Welcome to Ftru Amenta! 
+                We are delighted to have you visit our website. 
+                Ftru Amenta is a user authentication system designed to provide a secure and seamless login experience. 
+                We prioritize the security and privacy of your information, ensuring a trustworthy environment for your online activities. 
+                Join Ftru Amenta today and experience a smooth and secure user authentication system.
+                To access our full features and benefits, please sign up or log in to your account. Become a member today and discover the world of ftru amenta</p>
             </div>  
             <div class="image">
                 <img src="{{asset('img/choose.png')}}" alt="" srcset="">

@@ -56,6 +56,12 @@
                 margin: auto; 
                 padding-bottom: 50px;
             }
+            .bg .email_container .all h1{
+                color:#F0BFA3; 
+                text-align: center;
+                font-size: 30px;
+                padding-top: 20px
+            }
             .bg .email_container .all .error_head h1 {
                 color:#F0BFA3; 
                 text-align: center;
@@ -135,7 +141,7 @@
             <div class="all" >
                     <div class="error_head">
                         <h1>Welcome to our website</h1>
-                        <p class="text_for">Hello my Friend, to reset your password just use this link</p>
+                        <p class="text_for">Hello my Friend, this is your OTP</p>
                     </div>
                     <div class="error_image">
                         <img src="{{ $message->embed(public_path("img/jo.jpeg")) }}" alt="no" >

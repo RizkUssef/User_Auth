@@ -28,7 +28,7 @@
         </section>
         <section class="back_btn">
             <div class="link_cont">
-                <a href="{{url()->previous()}}">Back</a>
+                <a class="ftru_back" href="{{route("FTRU")}}">FTRU</a>
             </div>
         </section>
     </section>

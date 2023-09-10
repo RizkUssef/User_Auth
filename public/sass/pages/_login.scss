@@ -1,7 +1,7 @@
 @use "../variables/variables" as *;
 
 .pad_50{
-      padding: 80px 0px;      
+      padding: 120px 0px;      
 }
 .mar_50{
     margin-top: 0px;
@@ -224,6 +224,62 @@
                 form{
                     .forget_password{
                         margin-left: 303px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1300px){
+    .pad_50{
+        padding:50px 0px;
+        // padding-top: 5px;    
+    }
+    .mar_50{
+        margin-top: 70px !important;
+    }
+    .bg{
+        height: 100vh;
+        .center_all{
+            margin-top: 0%;
+            width: 35%;
+            // margin-bottom: 50%;
+            .login_container{
+                form{
+                    input{
+                        width: 97%;
+                    }
+                    .forget_password{
+                        margin-left: 202px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1366px){
+    .pad_50{
+        padding:50px 0px;
+        // padding-top: 5px;    
+    }
+    .mar_50{
+        margin-top: 70px !important;
+    }
+    .bg{
+        height: 100vh;
+        .center_all{
+            margin-top: 0%;
+            width: 35%;
+            // margin-bottom: 50%;
+            .login_container{
+                form{
+                    input{
+                        width: 97%;
+                    }
+                    .forget_password{
+                        margin-left: 218px;
                     }
                 }
             }

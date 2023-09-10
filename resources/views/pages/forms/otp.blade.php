@@ -21,23 +21,59 @@
         
         <section class="bg">
             <div class="center_all">
+
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                    <section id="section" class="error_container">
+                        <div class="all">
+                            <div class="error_image">
+                                <img src="{{asset("img/error.gif")}}">
+                            </div>
+                            <div class="error_head">
+                                <h1>{{$error}} </h1>
+                            </div>
+                        </div>
+                    </section>
+                    @endforeach
+                @endif
+
+
                 <div class="Welcome">
                     <h1>Email Verification</h1>
                 </div>
+                @if (session()->has('success'))
+                    <section id="section" class="error_container">
+                        <div class="all">
+                            <div class="error_image">
+                                <img src="{{asset("img/no.gif")}}">
+                            </div>
+                            <div class="error_head">
+                                <h1>{{session()->get('success')}}</h1>
+                            </div>
+                        </div>
+                    </section>
+                @endif
                 <div class="login_container">
-                        <h1>Email Verification</h1>
-                        {{-- @if (session()->has('error'))
-                            {{session('error')}}
-                        @endif --}}
+                        <h1>Enter Your OTP</h1>
                         <form action="{{route('verfiy')}}" method="POST">
                             @csrf
-                            <label for="">Enter Your OTP</label>
-                            <input type="hidden" name="user_id" value="{{encrypt($user_id)}}">
+                            @php
+                                $user = session()->get("user")
+                            @endphp
+                            <input type="hidden" name="user_id" value="{{encrypt($user->id)}}">
                             <input type="text" name="otp" id="">
                             <button class="submit" type="submit">Verfiy</button>
                         </form>
+                        <p>We send an Email for you that has your OTP, Check your email to verify your account 🙂  <a href="{{route('resend')}}">Resend email?</a> </p>
                 </div>
             </div>
         </section>
+        <script>
+            var section = document.getElementById("section");
+            function removeSection() {
+                section.parentNode.removeChild(section);
+            }
+            setTimeout(removeSection, 5000);
+        </script>
     </body>
 </html>

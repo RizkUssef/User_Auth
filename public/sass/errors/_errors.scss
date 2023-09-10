@@ -46,7 +46,15 @@
             border-color: rgba(0, 0, 0, 0.37);
             border-width: 0.3px;
             border-radius: 15px;
-            border-style: solid;  
+            border-style: solid; 
+            .ftru_back{
+                text-decoration: none;
+                color: $text_headers_color; 
+                &::before{
+                    content: "";
+                    display: none;
+                }
+            }
             a{
                 text-decoration: none;
                 color: $text_headers_color;
@@ -65,6 +73,13 @@
             border-color:$text_headers_color;
             background-color: $text_headers_color;
             cursor: pointer;
+            .ftru_back{
+                color: #f1eee9;
+                &::before{
+                    content: "";
+                    display: none;
+                }
+            }
             a{
                 color: #f1eee9;
                 &::before{
@@ -77,7 +92,6 @@
                     background: url('../../img/back\ \(1\).png') no-repeat center center;
                     background-size: contain;
                 }
-
             }
 
             }

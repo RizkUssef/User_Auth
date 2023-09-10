@@ -25,4 +25,13 @@ class ForgetPasswordRequest extends FormRequest
             "email"=>"required|email|exists:users,email",
         ];
     }
+
+    // public function messages()
+    // {
+    //     return [
+    //         'email.required' => 'The email is required.',
+    //         'email.exists' => "You don't have account yet, you must register first?!",
+    //         'email.email' => 'This input must be email',
+    //     ];
+    // }
 }

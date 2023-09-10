@@ -24,6 +24,12 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        RateLimiter::for('send_email', function (Request $request) {
+            return Limit::perMinute(1)->response(function (Request $request) {
+                return redirect()->route("error")->withErrors("we sent for you many emails, please check your inbox");
+            });
+        });
+
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
