@@ -141,7 +141,7 @@
                     <div class="error_image">
                         <img src="{{ $message->embed(public_path("img/jo.jpeg")) }}" alt="no" >
                     </div>                
-                    <a href="#" class="submit" >Reset Your Password</a>
+                    <a href="{{route('reset_pass',['token'=>$token])}}" class="submit" >Reset Your Password</a>
                 </div>
                 <div class="hint">
                     <p>For your notes this masterpiece made by the most perfect web developers
